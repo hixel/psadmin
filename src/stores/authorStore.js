@@ -59,9 +59,9 @@ Dispatcher.register(function(action) {
 			break;
 
 		case ActionTypes.DELETE_AUTHOR: 
-			_.remove(_authors, function(author) {
+			_.remove(_authors, function(a) {
 
-				return action.id === author.id;
+				return action.id === a.id;
 			});
 			AuthorStore.emitChange();
 			break;
