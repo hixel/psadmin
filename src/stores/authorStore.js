@@ -41,10 +41,25 @@ Dispatcher.register(function(action) {
 
 	switch (action.actionType) {
 
+		case ActionTypes.INITIALIZE:
+			_authors = action.initialData.authors;
+			AuthorStore.emitChange();
+			break;
+
 		case ActionTypes.CREATE_AUTHOR: 
 			_authors.push(action.author);
 			AuthorStore.emitChange();
 			break;
+
+		case ActionTypes.UPDATE_AUTHOR: 
+			var author = _.find(_authors, {id: action.author.id});
+			var authorIndex = _.indexOf(_authors, author);
+			_authors.splice(authorIndex, 1, action.author);
+			AuthorStore.emitChange();
+			break;
+
+		default:
+			// ignore
 	}
 });
 
