@@ -5,7 +5,7 @@ var _ = require('lodash');
 
 var _generateId = function(title) {
 
-	return title.toUpperCase().replace(/ /g, '-');
+	return title.toLowerCase().replace(/ /g, '-');
 };
 
 var _clone = function(item) {
@@ -37,6 +37,8 @@ var CourseApi = {
 			course.id = _generateId(course.title);
 			courses.push(course);
 		}
+
+		return _clone(course);
 	},
 
 	deleteCourse: function(id) {
