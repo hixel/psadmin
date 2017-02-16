@@ -21,6 +21,9 @@ var config = {
 			'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
 			'node_modules/toastr/toastr.css',
 		],
+		componentsJs: [
+			'node_modules/bootstrap/dist/js/bootstrap.min.js'
+		],
 		images: './src/images/*',
 		dist: './dist',
 		mainJs: './src/main.js'
@@ -69,6 +72,12 @@ gulp.task('css', function() {
 		.pipe(gulp.dest(config.paths.dist + '/css'));
 });
 
+gulp.task('componentsJs', function() {
+	gulp.src(config.paths.componentsJs)
+		.pipe(concat('componentsBundle.js'))
+		.pipe(gulp.dest(config.paths.dist + '/scripts'));
+});
+
 gulp.task('images', function() {
 
 	gulp.src(config.paths.images)
@@ -92,5 +101,8 @@ gulp.task('watch', function () {
 	gulp.watch(config.paths.js, ['js', 'lint']);
 });
 
-gulp.task('default', ['html', 'js', 'css', 'lint', 'images', 'open', 'watch']);
+gulp.task('default', [
+	'html', 'js', 'css', 'lint', 'componentsJs', 
+	'images', 'open', 'watch'
+]);
 

@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Input = require('../common/textInput');
+var SelectAuthor = require('../common/selectAuthor');
 
 var CourseForm = React.createClass({
 
@@ -24,6 +25,11 @@ var CourseForm = React.createClass({
 					value={this.props.course.title}
 					onChange={this.props.onChange}
 					error={this.props.errors.title} />
+				<br />
+
+				<SelectAuthor 
+					authors={this.props.authors} 
+					label="Author" />
 				<br />
 
 				<Input 

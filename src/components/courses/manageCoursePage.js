@@ -5,6 +5,7 @@ var Router = require('react-router');
 var CourseForm = require('./courseForm');
 var CourseActions = require('../../actions/courseActions');
 var CourseStore = require('../../stores/courseStore');
+var AuthorStore = require('../../stores/authorStore');
 var toastr = require('toastr');
 
 var ManageCoursePage = React.createClass({
@@ -39,6 +40,7 @@ var ManageCoursePage = React.createClass({
 				length: '', 
 				category: '' 
 			},
+			authors: AuthorStore.getAllAuthors(),
 			errors: {},
 			dirty: false
 		};
@@ -82,11 +84,18 @@ var ManageCoursePage = React.createClass({
 				formIsValid = false;
 		}
 
-		if (this.state.course.watchHref.search(/^http(s)?:\/\/.+$/g)) {
+		if (!/^http(s)?:\/\/.+$/g.test(this.state.course.watchHref)) {
 
 			this.state.errors.watchHref = 
 				'Incorrect wath href';
 			formIsValid = false;
+		}
+
+		if (!/^\d+(:\d+)?$/g.test(this.state.course.length)) {
+
+			this.state.errors.length = 
+				'Length must have format as "mm:ss" or "mm"';
+				formIsValid = false;
 		}
 
 		this.setState({
@@ -126,6 +135,7 @@ var ManageCoursePage = React.createClass({
 		return (	
 			<CourseForm 
 				course={this.state.course}
+				authors={this.state.authors}
 				onChange={this.setCourseState}
 				onSave={this.saveCourse}
 				errors={this.state.errors} />
