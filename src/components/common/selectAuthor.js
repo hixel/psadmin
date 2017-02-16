@@ -17,7 +17,7 @@ var SelectAuthor = React.createClass({
 
                 <option>{author.firstName + ' ' + author.lastName}</option>
             );
-        }
+        };
 
 		return (
 			<div className={wrapperClass}>
