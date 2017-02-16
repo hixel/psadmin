@@ -87,7 +87,7 @@ var ManageCoursePage = React.createClass({
 		if (!/^http(s)?:\/\/.+$/g.test(this.state.course.watchHref)) {
 
 			this.state.errors.watchHref = 
-				'Incorrect wath href';
+				'Incorrect watсh href';
 			formIsValid = false;
 		}
 
