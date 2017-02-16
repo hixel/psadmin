@@ -54,7 +54,7 @@ Dispatcher.register(function(action) {
 		case ActionTypes.UPDATE_COURSE: 
 			var course = _.find(_courses, {id: action.course.id});
 			var coursesIndex = _.indexOf(_courses, course);
-			_courses.splice(coursesIndex, 1, action.courses);
+			_courses.splice(coursesIndex, 1, action.course);
 			CourseStore.emitChange();
 			break;
 

@@ -6,38 +6,38 @@ var ActionTypes = require('../constants/actionTypes');
 
 var CourseActions = {
 
-	createCourse: function(course) {
+    createCourse: function(course) {
 
-		var newCourse = CourseApi.saveCourse(course);
+        var newCourse = CourseApi.saveCourse(course);
 
-		Dispatcher.dispatch({
+        Dispatcher.dispatch({
 
-			actionType: ActionTypes.CREATE_COURSE,
-			course: newCourse
-		});
-	},
+            actionType: ActionTypes.CREATE_COURSE,
+            course: newCourse
+        });
+    },
 
-	updateCourse: function(course) {
+    updateCourse: function(course) {
 
-		var updatedCourse = CourseApi.saveAuthor(course);
+        var updatedCourse = CourseApi.saveCourse(course);
 
-		Dispatcher.dispatch({
+        Dispatcher.dispatch({
 
-			actionType: ActionTypes.UPDATE_COURSE,
-			course: updatedCourse
-		});
-	},
+            actionType: ActionTypes.UPDATE_COURSE,
+            course: updatedCourse
+        });
+    },
 
-	deleteCourse: function(id) {
+    deleteCourse: function(id) {
 
-		CourseApi.deleteCourse(id);
+        CourseApi.deleteCourse(id);
 
-		Dispatcher.dispatch({
+        Dispatcher.dispatch({
 
-			actionType: ActionTypes.DELETE_COURSE,
-			id: id
-		});
-	}
+            actionType: ActionTypes.DELETE_COURSE,
+            id: id
+        });
+    }
 };
 
 module.exports = CourseActions;

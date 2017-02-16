@@ -25,7 +25,7 @@ var AuthorList = React.createClass({
 		var createAuthorRow = function(author) {
 
 			return (
-				<tr key={author.Id}>
+				<tr key={author.id}>
 					<td>
 						<a href="#" onClick={this.deleteAuthor.bind(this, author.id)}>
 							Delete

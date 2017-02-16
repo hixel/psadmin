@@ -25,7 +25,7 @@ var CourseList = React.createClass({
 		var createCourseRow = function(course) {
 
 			return (
-				<tr key={course.Id}>
+				<tr key={course.id}>
 					<td>
 						<a href="#" onClick={this.deleteCourse.bind(this, course.id)}>
 							Delete
