@@ -38,8 +38,8 @@ module.exports = {
 			title: "Web Component Fundamentals",
 			watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
 			author: {  
-				id: "cory-house",
-				name: "Cory House"
+				id: "dan-wahlin",
+				name: "Dan Wahlin"
 			},
 			length: "5:10",
 			category: "HTML5"

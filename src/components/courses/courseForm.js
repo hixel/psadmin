@@ -28,7 +28,10 @@ var CourseForm = React.createClass({
 				<br />
 
 				<SelectAuthor 
+					name="author"
 					authors={this.props.authors} 
+					author={this.props.course.author}
+					onChange={this.props.onChange}
 					label="Author" />
 				<br />
 

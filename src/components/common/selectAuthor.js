@@ -13,18 +13,27 @@ var SelectAuthor = React.createClass({
 
         var createSelectRow = function (author) {
 
+            var selected = {};
+            if (author.id === this.props.author.id) {
+
+                selected.selected = 'selected';
+            }
+
             return (
 
-                <option>{author.firstName + ' ' + author.lastName}</option>
+                <option {...selected} value={author.id}>{author.firstName + ' ' + author.lastName}</option>
             );
         };
 
 		return (
+
 			<div className={wrapperClass}>
 				<label htmlFor={this.props.name}>{this.props.label}</label>
 				<div className="field">
 
-                    <select className="form-control">
+                    <select className="form-control" 
+                        onChange={this.props.onChange}
+                        name={this.props.name}>
                         <option></option>
                         {this.props.authors.map(createSelectRow, this)}
                     </select>
