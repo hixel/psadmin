@@ -10,7 +10,7 @@ var CourseList = require('./courseList');
 var CoursePage = React.createClass({
 
 	getInitialState: function() {
-
+		
 		return {
 
 			courses: CourseStore.getAllCourses()

@@ -1,6 +1,7 @@
 "use strict";
 
 var React = require('react');
+var AuthorStore = require('../../stores/authorStore'); 
 
 var SelectAuthor = React.createClass({
 
@@ -14,14 +15,17 @@ var SelectAuthor = React.createClass({
         var createSelectRow = function (author) {
 
             var selected = {};
-            if (author.id === this.props.author.id) {
+            if (this.props.author && 
+                author.id === this.props.author.id) {
 
                 selected.selected = 'selected';
             }
 
             return (
 
-                <option {...selected} value={author.id}>{author.firstName + ' ' + author.lastName}</option>
+                <option {...selected} value={author.id}>
+                    {author.firstName + ' ' + author.lastName}
+                </option>
             );
         };
 
@@ -35,7 +39,7 @@ var SelectAuthor = React.createClass({
                         onChange={this.props.onChange}
                         name={this.props.name}>
                         <option></option>
-                        {this.props.authors.map(createSelectRow, this)}
+                        {AuthorStore.getAllAuthors().map(createSelectRow, this)}
                     </select>
 
 					<div className="input">{this.props.error}</div>
